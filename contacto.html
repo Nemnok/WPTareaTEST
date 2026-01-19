@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Mi Sitio Personal</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <h1 class="logo">Mi Sitio Web</h1>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link">Inicio</a></li>
+                <li class="nav-item"><a href="sobre-mi.html" class="nav-link">Sobre mí</a></li>
+                <li class="nav-item"><a href="contacto.html" class="nav-link active">Contacto</a></li>
+                <li class="nav-item"><a href="tetris.html" class="nav-link">Tetris</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="hero">
+            <h2 class="hero-title">Contacto</h2>
+            <p class="hero-description">¿Tienes alguna pregunta? Contáctame</p>
+        </section>
+
+        <section class="content">
+            <div class="card">
+                <h3>Formulario de Contacto</h3>
+                <form class="contact-form" method="get">
+                    <div class="form-group">
+                        <label for="nombre">Nombre:</label>
+                        <input type="text" id="nombre" name="nombre" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="mensaje">Mensaje:</label>
+                        <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn">Enviar Mensaje</button>
+                </form>
+            </div>
+
+            <div class="card">
+                <h3>Información de Contacto</h3>
+                <p><strong>Email:</strong> contacto@ejemplo.com</p>
+                <p><strong>GitHub:</strong> <a href="https://github.com/Nemnok/WPTareaTEST" target="_blank">Nemnok/WPTareaTEST</a></p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 Mi Sitio Personal. Todos los derechos reservados.</p>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>
