@@ -196,7 +196,7 @@ function clearLines() {
         const newLevel = Math.floor(lines / 10) + 1;
         if (newLevel > level) {
             level = newLevel;
-            dropInterval = Math.max(100, 1000 - (level - 1) * 25);
+            dropInterval = Math.max(100, 1000 - (level - 1) * 400);
         }
         
         updateScore();
