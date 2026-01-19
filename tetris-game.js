@@ -2,7 +2,10 @@
 // Juego completo de Tetris jugable en el navegador
 
 const canvas = document.getElementById('tetris-canvas');
-const ctx = canvas.getContext('2d');
+if (!canvas) {
+    console.error('Canvas element not found');
+} else {
+    const ctx = canvas.getContext('2d');
 
 // Configuración del juego
 const BLOCK_SIZE = 30;
@@ -237,9 +240,14 @@ function rotatePiece() {
 
 // Caída instantánea
 function hardDrop() {
-    while (movePiece(0, 1)) {
+    let maxDrops = ROWS; // Safety limit to prevent infinite loops
+    let drops = 0;
+    
+    while (movePiece(0, 1) && drops < maxDrops) {
         score += 2; // Bonus por hard drop
+        drops++;
     }
+    
     updateScore();
     placePiece();
     clearLines();
@@ -375,9 +383,7 @@ document.addEventListener('keydown', (e) => {
         case 'p':
         case 'P':
             isPaused = !isPaused;
-            if (!isPaused) {
-                gameLoop();
-            }
+            // No need to call gameLoop() - it's already running via requestAnimationFrame
             break;
     }
     
@@ -392,3 +398,5 @@ window.addEventListener('load', () => {
     console.log('%c🎮 ¡Tetris Cargado!', 'color: #8B0000; font-size: 24px; font-weight: bold;');
     console.log('%c¡Usa las flechas para mover y rotar! Espacio para caída instantánea.', 'color: #CD5C5C; font-size: 14px;');
 });
+
+} // End of canvas check
