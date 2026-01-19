@@ -13,6 +13,15 @@ Este repositorio contiene mi sitio web personal desarrollado como proyecto unive
 - **Menú funcional**: Navegación entre todas las páginas
 - **Tema personalizado**: Diseño con colores rojo oscuro y negro
 - **Juego Tetris**: Implementación de Tetris en Python
+- **JavaScript Interactivo**: Efectos y animaciones dinámicas
+  - Partículas flotantes en el fondo
+  - Animaciones de cards al hacer scroll
+  - Validación de formulario en tiempo real
+  - Sistema de notificaciones
+  - Cursor personalizado
+  - Contador de visitas (localStorage)
+  - Efecto parallax
+  - Easter egg: Código Konami (↑ ↑ ↓ ↓ ← → ← → B A)
 
 ### Archivos del Proyecto
 
@@ -20,6 +29,7 @@ Este repositorio contiene mi sitio web personal desarrollado como proyecto unive
 - `sobre-mi.html` - Página sobre mí
 - `contacto.html` - Página de contacto
 - `styles.css` - Estilos con tema rojo oscuro y negro
+- `script.js` - JavaScript con efectos interactivos y validación
 - `tetris.py` - Juego de Tetris en Python
 
 ### Cómo Visualizar el Sitio
