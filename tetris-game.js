@@ -79,7 +79,7 @@ let currentPiece = null;
 let currentX = 0;
 let currentY = 0;
 
-// Clase para las piezas
+// Класс генератор
 class Piece {
     constructor(type) {
         this.type = type;
@@ -102,7 +102,7 @@ class Piece {
     }
 }
 
-// Inicializar el juego
+// Иницация игры
 function init() {
     board = Array(ROWS).fill().map(() => Array(COLS).fill(0));
     score = 0;
@@ -122,7 +122,7 @@ function init() {
     gameLoop();
 }
 
-// Generar una nueva pieza
+// Новая деталь
 function spawnPiece() {
     const types = Object.keys(SHAPES);
     const randomType = types[Math.floor(Math.random() * types.length)];
@@ -136,7 +136,7 @@ function spawnPiece() {
     }
 }
 
-// Verificar colisión
+// Колизия расчёт
 function checkCollision(x, y, shape) {
     for (let row = 0; row < shape.length; row++) {
         for (let col = 0; col < shape[row].length; col++) {
