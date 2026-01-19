@@ -10,9 +10,13 @@ Este repositorio contiene mi sitio web personal desarrollado como proyecto unive
 - **Página Inicio**: Página principal con introducción
 - **Página Sobre mí**: Información personal y habilidades
 - **Página Contacto**: Formulario de contacto e información
+- **Página Tetris**: Juego de Tetris jugable en el navegador
 - **Menú funcional**: Navegación entre todas las páginas
 - **Tema personalizado**: Diseño con colores rojo oscuro y negro
-- **Juego Tetris**: Implementación de Tetris en Python
+- **Juego Tetris Interactivo**: Tetris completo en JavaScript jugable en el navegador
+  - Controles con teclado (flechas, espacio, P para pausar)
+  - Sistema de puntuación y niveles
+  - Efectos visuales y animaciones
 - **JavaScript Interactivo**: Efectos y animaciones dinámicas
   - Partículas flotantes en el fondo
   - Animaciones de cards al hacer scroll
@@ -28,9 +32,11 @@ Este repositorio contiene mi sitio web personal desarrollado como proyecto unive
 - `index.html` - Página de inicio
 - `sobre-mi.html` - Página sobre mí
 - `contacto.html` - Página de contacto
+- `tetris.html` - Página del juego Tetris
 - `styles.css` - Estilos con tema rojo oscuro y negro
 - `script.js` - JavaScript con efectos interactivos y validación
-- `tetris.py` - Juego de Tetris en Python
+- `tetris-game.js` - Lógica del juego Tetris en JavaScript
+- `tetris.py` - Versión en Python del juego (referencia)
 
 ### Cómo Visualizar el Sitio
 
@@ -48,7 +54,20 @@ Este repositorio contiene mi sitio web personal desarrollado como proyecto unive
 
 ### Jugar Tetris
 
-Para ejecutar el juego de Tetris:
+El juego de Tetris está disponible directamente en el navegador:
+
+1. Abre el sitio web
+2. Haz clic en "Tetris" en el menú de navegación
+3. ¡Juega usando las teclas del teclado!
+
+**Controles:**
+- ← → : Mover pieza
+- ↑ : Rotar pieza
+- ↓ : Caída rápida
+- Espacio: Caída instantánea
+- P: Pausar/Reanudar
+
+También incluye una versión en Python (`tetris.py`) como referencia:
 
 ```bash
 python3 tetris.py
