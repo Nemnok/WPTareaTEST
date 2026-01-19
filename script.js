@@ -300,9 +300,9 @@ function customCursor() {
 
 // Contador de visitas en localStorage
 function visitCounter() {
-    const visits = localStorage.getItem('visitCount') || 0;
-    const newVisits = parseInt(visits) + 1;
-    localStorage.setItem('visitCount', newVisits);
+    const visits = parseInt(localStorage.getItem('visitCount') || '0');
+    const newVisits = visits + 1;
+    localStorage.setItem('visitCount', newVisits.toString());
     
     console.log(`%c¡Bienvenido! Esta es tu visita #${newVisits}`, 
                 'color: #8B0000; font-size: 20px; font-weight: bold;');
@@ -355,44 +355,6 @@ function activateEasterEgg() {
     }, 5000);
 }
 
-// Efecto de nieve (ajustado al tema rojo)
-function createSnowEffect() {
-    for (let i = 0; i < 50; i++) {
-        setTimeout(() => {
-            const snowflake = document.createElement('div');
-            const size = Math.random() * 5 + 2;
-            const startX = Math.random() * window.innerWidth;
-            const duration = Math.random() * 3 + 2;
-            const delay = Math.random() * 5;
-            
-            snowflake.style.cssText = `
-                position: fixed;
-                width: ${size}px;
-                height: ${size}px;
-                background: rgba(205, 92, 92, 0.6);
-                border-radius: 50%;
-                left: ${startX}px;
-                top: -10px;
-                animation: fall ${duration}s linear ${delay}s infinite;
-                pointer-events: none;
-                z-index: 1;
-            `;
-            
-            document.body.appendChild(snowflake);
-        }, i * 100);
-    }
-    
-    const fallStyle = document.createElement('style');
-    fallStyle.textContent = `
-        @keyframes fall {
-            to {
-                transform: translateY(100vh) rotate(360deg);
-            }
-        }
-    `;
-    document.head.appendChild(fallStyle);
-}
-
 // Inicializar todo cuando el DOM esté listo
 document.addEventListener('DOMContentLoaded', () => {
     console.log('%c🎮 ¡Sitio Web Personal Cargado!', 'color: #8B0000; font-size: 24px; font-weight: bold;');
@@ -408,20 +370,11 @@ document.addEventListener('DOMContentLoaded', () => {
     parallaxEffect();
     konamiCode();
     
-    // Efecto de nieve opcional (comentado por defecto)
-    // createSnowEffect();
-    
     // Mensaje de bienvenida con animación
     setTimeout(() => {
         showNotification('¡Bienvenido a mi sitio web! 🎉', 'success');
     }, 500);
 });
-
-// Prevenir clic derecho (opcional, comentado)
-// document.addEventListener('contextmenu', (e) => {
-//     e.preventDefault();
-//     showNotification('Clic derecho deshabilitado 🔒', 'info');
-// });
 
 // Smooth scroll para todos los enlaces
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
