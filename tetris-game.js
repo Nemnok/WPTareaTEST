@@ -362,9 +362,11 @@ document.addEventListener('keydown', (e) => {
     
     switch(e.key) {
         case 'ArrowLeft':
+            e.preventDefault();
             movePiece(-1, 0);
             break;
         case 'ArrowRight':
+            e.preventDefault();
             movePiece(1, 0);
             break;
         case 'ArrowDown':
