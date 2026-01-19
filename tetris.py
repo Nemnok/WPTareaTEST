@@ -9,6 +9,9 @@ import time
 import os
 import sys
 
+# Game constants
+MAX_DEMO_MOVES = 100
+
 # Tetromino shapes defined as 2D arrays
 SHAPES = {
     'I': [[1, 1, 1, 1]],
@@ -191,8 +194,6 @@ class Tetris:
 
 def main():
     """Main game loop"""
-    MAX_DEMO_MOVES = 100
-    
     print(f"{COLORS['BOLD']}{COLORS['Z']}")
     print("=" * 50)
     print(" " * 15 + "TETRIS GAME")

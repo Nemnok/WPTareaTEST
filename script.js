@@ -29,6 +29,7 @@ function createParticle(container) {
     const startX = Math.random() * window.innerWidth;
     const duration = Math.random() * 20 + 10;
     const delay = Math.random() * 5;
+    const horizontalMove = Math.random() * 200 - 100;
     
     particle.style.cssText = `
         position: absolute;
@@ -38,9 +39,12 @@ function createParticle(container) {
         border-radius: 50%;
         left: ${startX}px;
         bottom: -10px;
-        animation: float ${duration}s linear ${delay}s infinite;
         box-shadow: 0 0 10px rgba(139, 0, 0, 0.5);
     `;
+    
+    // Set custom property for animation
+    particle.style.setProperty('--horizontal-move', `${horizontalMove}px`);
+    particle.style.animation = `float ${duration}s linear ${delay}s infinite`;
     
     container.appendChild(particle);
 }
@@ -60,7 +64,7 @@ style.textContent = `
             opacity: 1;
         }
         100% {
-            transform: translateY(-100vh) translateX(${Math.random() * 200 - 100}px);
+            transform: translateY(-100vh) translateX(var(--horizontal-move, 0px));
             opacity: 0;
         }
     }
@@ -162,12 +166,19 @@ function setupContactForm() {
     const form = document.querySelector('.contact-form');
     if (!form) return;
     
+    const nombreInput = document.getElementById('nombre');
+    const emailInput = document.getElementById('email');
+    const mensajeInput = document.getElementById('mensaje');
+    
+    // Verificar que todos los elementos existen
+    if (!nombreInput || !emailInput || !mensajeInput) return;
+    
     form.addEventListener('submit', (e) => {
         e.preventDefault();
         
-        const nombre = document.getElementById('nombre').value.trim();
-        const email = document.getElementById('email').value.trim();
-        const mensaje = document.getElementById('mensaje').value.trim();
+        const nombre = nombreInput.value.trim();
+        const email = emailInput.value.trim();
+        const mensaje = mensajeInput.value.trim();
         
         // Validación
         let isValid = true;
