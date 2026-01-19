@@ -196,7 +196,7 @@ function clearLines() {
         const newLevel = Math.floor(lines / 10) + 1;
         if (newLevel > level) {
             level = newLevel;
-            dropInterval = Math.max(100, 1000 - (level - 1) * 100);
+            dropInterval = Math.max(100, 1000 - (level - 1) * 25);
         }
         
         updateScore();
@@ -362,18 +362,22 @@ document.addEventListener('keydown', (e) => {
     
     switch(e.key) {
         case 'ArrowLeft':
+            e.preventDefault();
             movePiece(-1, 0);
             break;
         case 'ArrowRight':
+            e.preventDefault();
             movePiece(1, 0);
             break;
         case 'ArrowDown':
+            e.preventDefault();
             if (movePiece(0, 1)) {
                 score += 1; // Bonus por soft drop
                 updateScore();
             }
             break;
         case 'ArrowUp':
+            e.preventDefault();
             rotatePiece();
             break;
         case ' ':
