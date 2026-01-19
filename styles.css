@@ -165,11 +165,12 @@ body {
 }
 
 .skills-list li:before {
-    content: "▸";
+    content: ">";
     position: absolute;
     left: 0;
     color: var(--dark-red);
     font-weight: bold;
+    font-size: 1.2em;
 }
 
 /* Button Styles */

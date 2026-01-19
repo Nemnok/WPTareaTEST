@@ -163,10 +163,14 @@ class Tetris:
         """Render the game board to terminal"""
         os.system('clear' if os.name == 'posix' else 'cls')
         
+        # Build header text and calculate padding
+        header_text = f"TETRIS - Score: {self.score} | Level: {self.level} | Lines: {self.lines_cleared}"
+        padding = self.width * 2 - len(header_text)
+        
         print(f"{COLORS['BOLD']}{COLORS['Z']}╔{'═' * (self.width * 2)}╗{COLORS['RESET']}")
         print(f"{COLORS['BOLD']}{COLORS['Z']}║{COLORS['RESET']} " + 
-              f"{COLORS['BOLD']}TETRIS - Score: {self.score} | Level: {self.level} | Lines: {self.lines_cleared}{COLORS['RESET']}" + 
-              " " * (self.width * 2 - 40 - len(str(self.score)) - len(str(self.level)) - len(str(self.lines_cleared))) +
+              f"{COLORS['BOLD']}{header_text}{COLORS['RESET']}" + 
+              " " * padding +
               f"{COLORS['BOLD']}{COLORS['Z']}║{COLORS['RESET']}")
         print(f"{COLORS['BOLD']}{COLORS['Z']}╠{'═' * (self.width * 2)}╣{COLORS['RESET']}")
         
@@ -187,6 +191,8 @@ class Tetris:
 
 def main():
     """Main game loop"""
+    MAX_DEMO_MOVES = 100
+    
     print(f"{COLORS['BOLD']}{COLORS['Z']}")
     print("=" * 50)
     print(" " * 15 + "TETRIS GAME")
@@ -206,7 +212,7 @@ def main():
     
     # Auto-play demonstration
     moves = 0
-    while not game.game_over and moves < 100:
+    while not game.game_over and moves < MAX_DEMO_MOVES:
         game.render()
         time.sleep(0.3)
         
